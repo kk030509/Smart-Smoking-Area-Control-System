@@ -39,14 +39,23 @@ DC 모터, 서보모터, 7세그먼트를 이용하여
 ---
 
 ## 🧱 프로젝트 구조
+```
 /project
 ├── src/
 │   ├── main.c
 │   ├── button/
+│   │   ├── button.c
+│   │   └── button.h
 │   ├── motor/
+│   │   ├── motor.c
+│   │   └── motor.h
 │   ├── servo/
+│   │   ├── servo.c
+│   │   └── servo.h
 │   ├── segment/
-
+│   │   ├── segment.c
+│   │   └── segment.h
+```
 
 ---
 
