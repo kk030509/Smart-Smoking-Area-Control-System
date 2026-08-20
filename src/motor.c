@@ -1,14 +1,14 @@
 ﻿#define F_CPU 16000000UL
 #include "motor.h"
 #include <util/delay.h>
-// PWM 초기화 (Timer0 사용)
+// PWM 초기화
 static int prev_count = 0;
 void Motor_Init(void)
 {
 	DDRB |= (1 << PB4);  // OC0 핀
 	// Fast PWM
 	TCCR0 |= (1 << WGM00) | (1 << WGM01);
-	TCCR0 |= (1 << COM01); // non-inverting
+	TCCR0 |= (1 << COM01); 
 	TCCR0 |= (1 << CS01)|(1<<CS00); 
 	OCR0 = 0; // 초기 정지
 }
@@ -38,7 +38,7 @@ void Motor_UpdateByCount(int count)
 		 if(prev_count == 0 && count > 0)
 		 {
 			 Motor_SetSpeed(3);   // 부스트
-			 _delay_ms(50);       // 100ms 정도 (환경에 맞게 조절)
+			 _delay_ms(50);     
 		 }
 		Motor_SetSpeed(1);
 	}
