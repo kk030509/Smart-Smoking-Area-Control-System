@@ -21,7 +21,7 @@ void Servo_Init(void)
 	OCR1A = servoPos;
 }
 
-// 동작 시작 (버튼 눌렀을 때 호출)
+// 동작 시작 
 void Servo_Start(void)
 {
 	if(state == SERVO_IDLE)
@@ -30,7 +30,7 @@ void Servo_Start(void)
 	}
 }
 
-// 상태 업데이트 (계속 호출해야 함)
+// 상태 업데이트 
 void Servo_Update(void)
 {
 	switch(state)
