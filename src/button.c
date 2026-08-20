@@ -10,13 +10,13 @@ volatile uint8_t *pin, volatile uint8_t *port, uint8_t pinNum)
 	button->btnPin = pinNum;
 	button->prevState = RELEASED;
 	*button->ddr &= ~(1 << button->btnPin);   // 입력 설정
-	*button->port |= (1 << button->btnPin);   // 내부 풀업 활성화 ⭐
+	*button->port |= (1 << button->btnPin);   // 내부 풀업
 }
 
 uint8_t Button_GetState(BUTTON *button)
 {
 	uint8_t currState;
-	// 풀업 기준 (눌림=0)
+	// 눌림=0
 	currState = (*button->pin & (1 << button->btnPin)) ? RELEASED : PUSHED;
 	if((currState == PUSHED) && (button->prevState == RELEASED))
 	{
