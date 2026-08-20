@@ -5,7 +5,7 @@
 static int prev_count = 0;
 void Motor_Init(void)
 {
-	DDRB |= (1 << PB4);  // OC0 핀 (보드에 따라 다름)
+	DDRB |= (1 << PB4);  // OC0 핀
 	// Fast PWM
 	TCCR0 |= (1 << WGM00) | (1 << WGM01);
 	TCCR0 |= (1 << COM01); // non-inverting
